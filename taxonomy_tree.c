@@ -63,7 +63,13 @@ void print_taxonomy(Taxon *species_list[], int species_count)
     }
 }
 
-
+void free_tree(Taxon *all_taxa[], int total_count)
+{
+    for (int i=0;i<total_count;i++)
+    {
+        free(all_taxa[i]);
+    }
+}
 
 int main (void)
 {
@@ -89,5 +95,7 @@ int main (void)
 
     Taxon* species_list[4] = { group[3], group[4], group[5], group[6] };
     print_taxonomy(species_list, 4);
+
+    free_tree(group,7);
 }
 
